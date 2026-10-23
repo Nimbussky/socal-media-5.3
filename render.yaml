@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: glass-stream-pro
+    runtime: node
+    plan: free
+    buildCommand: ""
+    startCommand: node server.mjs
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+# NOTE: free-tier disks are ephemeral — uploaded videos and db.json reset on
+# restart/redeploy. Add a paid persistent disk mounted at /opt/data later,
+# or point storage at Cloudflare R2 (launch plan step 3).
